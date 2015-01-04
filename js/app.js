@@ -16,8 +16,8 @@ $(document).ready(function() {
 
     //agregamos evento para que al terminar de arrastrar los marcadores se marque la ruta
     google.maps.event.addListener(mar, 'dragend', function() {
-        start = new google.maps.LatLng(mar.position.k,mar.position.B);
-        end = new google.maps.LatLng(marf.position.k,marf.position.B);
+        start = new google.maps.LatLng(mar.position.lat(),mar.position.lng());
+        end = new google.maps.LatLng(marf.position.lat(),marf.position.lng());
         var request = {
             origin:start,
             destination:end,
@@ -31,8 +31,8 @@ $(document).ready(function() {
     });
     google.maps.event.addListener(marf, 'dragend', function() {
         //inicializamos el punto de partida y de llegada con las posicicones de los marcadores
-        start = new google.maps.LatLng(mar.position.k,mar.position.B);
-        end = new google.maps.LatLng(marf.position.k,marf.position.B);
+        start = new google.maps.LatLng(mar.position.lat(),mar.position.lng());
+        end = new google.maps.LatLng(marf.position.lat(),marf.position.lng());
         //hacemos una peticion al servicio de rutas
         var request = {
             origin:start,
